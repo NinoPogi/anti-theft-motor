@@ -8,33 +8,31 @@ const MessageComponent: React.FC = () => {
     const [imageSrc, setImageSrc] = useState('/src/assets/happy.png');
 
     useEffect(() => {
-        const ws = new WebSocket(`ws://localhost:3000`);
-
-        ws.onopen = () => {
-            console.log('Connected to the WebSocket server');
-        };
-
-        ws.onmessage = (event) => {
-            const data = JSON.parse(event.data);
-            setMessage(data.message);
-            if (data.message === 'Movement or force detected!') {
-                setBgColor('red');
-                setDisplayText('Alert!! Unwanted Movement on yur motor');
-                setImageSrc('/src/assets/despair.png');
-            } else {
-                setBgColor('green');
-                setDisplayText('It\'s okay, Your motor is fine');
-                setImageSrc('/src/assets/happy.png');
+        async function fetchData() {
+            try {
+                const response = await fetch('http://maangasnamotorapp.vercel.app/api/alert');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setMessage(data.message);
+                if (data.message === 'Movement or force detected!') {
+                    setBgColor('red');
+                    setDisplayText('Alert!! Unwanted Movement on yur motor');
+                    setImageSrc('/src/assets/despair.png');
+                } else {
+                    setBgColor('green');
+                    setDisplayText('It\'s okay, Your motor is fine');
+                    setImageSrc('/src/assets/happy.png');
+                }
+                // Do something with the received message
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
             }
-        };
+        }
+        
+        setInterval(fetchData, 2000);
 
-        ws.onclose = () => {
-            console.log('Disconnected from the WebSocket server');
-        };
-
-        return () => {
-            ws.close();
-        };
     }, []);
 
     return (
