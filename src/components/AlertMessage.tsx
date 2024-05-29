@@ -10,7 +10,7 @@ const MessageComponent: React.FC = () => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await fetch('http://maangasnamotorapp.vercel.app/api/alert');
+                const response = await fetch('https://maangasnamotorapp.vercel.app/api/alert');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
