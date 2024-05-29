@@ -8,7 +8,7 @@ const MessageComponent: React.FC = () => {
     const [imageSrc, setImageSrc] = useState('/src/assets/happy.png');
 
     useEffect(() => {
-        const ws = new WebSocket(`wss://anti-motor-theft-api.vercel.app`);
+        const ws = new WebSocket(`ws://localhost:3000`);
 
         ws.onopen = () => {
             console.log('Connected to the WebSocket server');
