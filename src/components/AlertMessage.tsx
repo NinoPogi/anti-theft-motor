@@ -5,7 +5,7 @@ const MessageComponent: React.FC = () => {
     const [message, setMessage] = useState('No Alarm');
     const [bgColor, setBgColor] = useState('green');
     const [displayText, setDisplayText] = useState('It\'s okay');
-    const [imageSrc, setImageSrc] = useState('/src/assets/happy.png');
+    const [imageSrc, setImageSrc] = useState('https://res.cloudinary.com/dzobqin7p/image/upload/v1716944295/happy_owdm8a.png');
 
     useEffect(() => {
         async function fetchData() {
@@ -19,11 +19,11 @@ const MessageComponent: React.FC = () => {
                 if (data.message === 'Movement or force detected!') {
                     setBgColor('red');
                     setDisplayText('Alert!! Unwanted Movement on yur motor');
-                    setImageSrc('/src/assets/despair.png');
+                    setImageSrc('https://res.cloudinary.com/dzobqin7p/image/upload/v1716944295/despair_jsphly.png');
                 } else {
                     setBgColor('green');
                     setDisplayText('It\'s okay, Your motor is fine');
-                    setImageSrc('/src/assets/happy.png');
+                    setImageSrc('https://res.cloudinary.com/dzobqin7p/image/upload/v1716944295/happy_owdm8a.png');
                 }
                 // Do something with the received message
             } catch (error) {
