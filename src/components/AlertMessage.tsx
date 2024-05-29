@@ -8,7 +8,8 @@ const MessageComponent: React.FC = () => {
     const [imageSrc, setImageSrc] = useState('/src/assets/happy.png');
 
     useEffect(() => {
-        const ws = new WebSocket(`ws://localhost:3000`);
+        const ws = new WebSocket(`ws://${window.location.host}/api`);
+
 
         ws.onopen = () => {
             console.log('Connected to the WebSocket server');
