@@ -10,7 +10,6 @@ const MessageComponent: React.FC = () => {
     useEffect(() => {
         const ws = new WebSocket(`ws://anti-motor-theft-api.vercel.app`);
 
-
         ws.onopen = () => {
             console.log('Connected to the WebSocket server');
         };
