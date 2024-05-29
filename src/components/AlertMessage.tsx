@@ -5,7 +5,7 @@ const MessageComponent: React.FC = () => {
     const [message, setMessage] = useState('No Alarm');
     const [bgColor, setBgColor] = useState('green');
     const [displayText, setDisplayText] = useState('It\'s okay');
-    const [imageSrc, setImageSrc] = useState('/src/assets/happy.png');
+    const [imageSrc, setImageSrc] = useState('https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngedits.com%2Fpng%2F2106%2Fsmiley-face-emoji-png-images-hd-download&psig=AOvVaw1YyFLsB1W3YS_gdZfWnE0G&ust=1717027466505000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCNiLovPHsYYDFQAAAAAdAAAAABAR');
 
     useEffect(() => {
         const ws = new WebSocket(`ws://localhost:3000`);
@@ -20,11 +20,11 @@ const MessageComponent: React.FC = () => {
             if (data.message === 'Movement or force detected!') {
                 setBgColor('red');
                 setDisplayText('Alert!! Unwanted Movement on yur motor');
-                setImageSrc('/src/assets/despair.png');
+                setImageSrc('https://www.google.com/url?sa=i&url=https%3A%2F%2Femoji.gg%2Femoji%2F4571-despair&psig=AOvVaw1HYi_ZWMGbUsJ79EoC4ZUE&ust=1717027508154000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCNjn7ofIsYYDFQAAAAAdAAAAABAE');
             } else {
                 setBgColor('green');
                 setDisplayText('It\'s okay, Your motor is fine');
-                setImageSrc('/src/assets/happy.png');
+                setImageSrc("https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngedits.com%2Fpng%2F2106%2Fsmiley-face-emoji-png-images-hd-download&psig=AOvVaw1YyFLsB1W3YS_gdZfWnE0G&ust=1717027466505000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCNiLovPHsYYDFQAAAAAdAAAAABAR");
             }
         };
 
